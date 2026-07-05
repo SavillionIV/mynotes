@@ -1,39 +1,29 @@
-function sayHello(){
+// Mobile menu
+const menuBtn = document.getElementById("menuBtn");
+const nav = document.getElementById("nav");
 
-alert("Hello Saville. Welcome to programming.");
+menuBtn.addEventListener("click", () => {
+  nav.classList.toggle("open");
+});
 
-}
+// Seasonal theme switcher
+const hero = document.getElementById("hero");
+const seasonLabel = document.getElementById("seasonLabel");
+const summerBtn = document.getElementById("summerBtn");
+const winterBtn = document.getElementById("winterBtn");
 
-function changeColor(){
+summerBtn.addEventListener("click", () => {
+  hero.classList.remove("winter");
+  hero.classList.add("summer");
+  seasonLabel.textContent = "Summer Services";
+  summerBtn.classList.add("active");
+  winterBtn.classList.remove("active");
+});
 
-document.body.style.backgroundColor = "blue";
-
-}
-
-let number = 0;
-
-function increase(){
-
-number++;
-
-document.getElementById("count").innerHTML = number;
-
-}
-
-let newParagraph = document.createElement("p");
-
-newParagraph.innerHTML = "This was created with JavaScript.";
-
-document.body.appendChild(newParagraph);
-
-function addTask(){
-
-let task = document.getElementById("task").value;
-
-let li = document.createElement("li");
-
-li.innerHTML = task;
-
-document.getElementById("list").appendChild(li);
-
-}
+winterBtn.addEventListener("click", () => {
+  hero.classList.remove("summer");
+  hero.classList.add("winter");
+  seasonLabel.textContent = "Winter / Christmas Services";
+  winterBtn.classList.add("active");
+  summerBtn.classList.remove("active");
+});
