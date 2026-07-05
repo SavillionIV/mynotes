@@ -1,0 +1,268 @@
+/* =========================
+   RESET / GLOBAL
+   Removes default spacing and makes sizing easier to control
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================
+   BODY
+   Main page settings
+========================= */
+body {
+    background-color: #101010;
+    color: #f5f5f5;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* =========================
+   TEXT
+========================= */
+h1 {
+    color: cyan;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: orange;
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+ul {
+    list-style-position: inside;
+    margin-bottom: 15px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* =========================
+   HEADER
+========================= */
+.header {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #151515, #202020);
+    border-bottom: 2px solid cyan;
+}
+
+.subtitle {
+    color: #cccccc;
+    font-size: 18px;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    background-color: #1e90ff;
+    padding: 15px 20px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Search box in navbar */
+.search {
+    padding: 10px 12px;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+    min-width: 240px;
+}
+
+/* =========================
+   MAIN
+========================= */
+.main {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+/* Reusable card layout */
+.card {
+    background-color: #1b1b1b;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    text-align: center;
+}
+
+/* =========================
+   ABOUT ME
+========================= */
+.aboutme img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid cyan;
+    margin-bottom: 15px;
+}
+
+/* =========================
+   GOALS
+========================= */
+.goal-list {
+    padding-left: 0;
+}
+
+/* =========================
+   FLEXBOX EXAMPLE
+========================= */
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.box {
+    background-color: orange;
+    color: black;
+    padding: 30px 40px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    min-width: 80px;
+}
+
+/* =========================
+   CONTACT FORM
+========================= */
+.contact form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: left;
+}
+
+.contact label {
+    font-weight: bold;
+    color: #dddddd;
+}
+
+.contact input,
+.contact textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background-color: #2a2a2a;
+    color: white;
+    font-size: 16px;
+}
+
+.contact textarea {
+    resize: vertical;
+}
+
+/* Submit button */
+.contact button {
+    background-color: cyan;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.contact button:hover {
+    background-color: orange;
+    transform: scale(1.03);
+}
+
+/* Message area below form */
+.form-message {
+    margin-top: 10px;
+    font-weight: bold;
+    min-height: 24px;
+}
+
+/* Class added by JavaScript if validation fails */
+.error {
+    border: 2px solid red !important;
+}
+
+/* Optional hidden state for search results */
+.hidden {
+    display: none;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #0a0a0a;
+    border-top: 2px solid cyan;
+    margin-top: 30px;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links {
+        justify-content: center;
+    }
+
+    .search {
+        min-width: 100%;
+    }
+
+    .aboutme img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .main {
+        padding: 15px;
+    }
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>HTML Links</title>
+</head>
+
+<body>
+
+	<h1>HTML links</h1>
+		<!-- ctl+d will copy the previous line,
+			 Link colors: (can be changed using css, not what this is covering)
+				blue = unvisited Links
+				purple = visited Links
+				red = active link, it'll be a quick change as your clicking on it.
+		--!>
+	<hr>
+	<h2>Bookmark Links</h2>
+	<!--Not often used but handy. This will take you to a section on the webpage.--!>
+	<ol>
+		<li><a href="#external">External Link</a></li>
+		<li><a href="#internal">Internal Link</a></li>
+		<li><a href="#email">Email Link</a></li>
+		<li><a href="#button">Button Link</a></li>
+		<li><a href="#images">Images Link</a></li>
+	</ol>
+
+	<hr>
+	<h2>External link</h2>
+	<a href="https://google.com">Google Page</a><br>
+	<a href="https://youtube.com" id="external">Youtube Page</a>
+	
+	<hr>
+	<h2>Internal link - Direct</h2>
+	<!--internal links are case sensitive--!>
+	<a href="page2.html" id="internal">Go to page 2</a>
+
+	<hr>
+	<h2>Internal link - relative</h2>
+	<a href="./images/test.png">Background Image Link</a>
+	
+	<hr>
+	<h2>Email link</h2>
+	<a href="mailto:savillionuniversal@gmail.com" id="email">Email Us</a>
+	
+	<hr>
+	<h2>External link</h2>
+	<p>Open the link in a new tab</p>
+	<!--The "target" tab allows you to open the link in a new tab.--!>
+	<a href="https://chatgpt.com" target="_blank">Go to Chat GPT</a>
+	
+	<hr>
+	<h2>Button link</hr><br>
+	<!--This kind of link has more to do with javascript, though it's a "good-to-know" basic. This is more related to forms; i.g. logins.--!>
+	<button onclick="document.location='page2.html'" id="button">Submit</button>
+	
+	<hr>
+	<h2>Image link</hr><br>
+	<a href="https://youtube.com" target="_blank" id="images">
+		<img src="./images/test.png" alt="example image link" width="200px" />
+	</a>
+
+</body>
+</html>

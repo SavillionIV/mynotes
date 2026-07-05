@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shadowverse Productions</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Shadowverse Productions</h1>
+    <p>Build quietly. Learn deeply. Grow with purpose.</p>
+  </header>
+
+  <nav class="navbar">
+    <a class="active" href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="profile.html">Profile</a>
+    <a href="subscription.html">Subscription</a>
+    <a href="checkout.html">Checkout</a>
+    <a href="contact.html">Contact</a>
+    <a href="create.html">Create Account</a>
+    <input id="siteSearch" type="text" placeholder="Search this page..." />
+  </nav>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>Index</h2>
+      <ol>
+        <li>Welcome</li>
+        <li>Video Demo</li>
+        <li>Login Test</li>
+        <li>Quick Links</li>
+      </ol>
+    </aside>
+
+    <main class="main-content">
+      <section class="card hero">
+        <h2>Welcome</h2>
+        <p>This condensed version keeps the strongest pieces from your experiments: navigation, login, signup, profile, subscription, checkout, contact forms, and PHP practice.</p>
+        <button class="primary-btn">Skeleton Man</button>
+      </section>
+
+      <section class="card video-card">
+        <h2>Forest Video Demo</h2>
+        <p class="muted">3.4M views · 6 months ago</p>
+        <p class="muted">Adobe Stock Shorts ✓</p>
+        <p>This is a description of the video. It is somewhere I would like to visit.</p>
+        <video controls loop muted poster="images/profile.jpg">
+          <source src="videos/sample1.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="button-row">
+          <button class="danger-btn">Subscribe</button>
+          <button class="outline-btn">Join</button>
+          <button class="round-btn">Tweet</button>
+          <button class="secondary-btn">Download</button>
+        </div>
+      </section>
+
+      <section class="card login-card">
+        <h2>Login Test</h2>
+        <form action="php/action_page.php" method="post">
+          <label for="uname">Username</label>
+          <input type="text" id="uname" name="uname" placeholder="Enter Username" required />
+
+          <label for="psw">Password</label>
+          <input type="password" id="psw" name="psw" placeholder="Enter Password" required />
+
+          <label class="checkbox-line"><input type="checkbox" checked name="remember" /> Remember me</label>
+          <button type="submit" class="primary-btn">Login</button>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div><a href="contact.html">Contact Us</a><br><a href="about.html">About Us</a></div>
+    <p>&copy; 2025–2026 Shadowverse Productions</p>
+  </footer>
+</body>
+</html>
