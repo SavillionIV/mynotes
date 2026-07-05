@@ -39,7 +39,7 @@
             <!-- These must match actual section IDs below -->
             <a href="#projects">Projects</a>
             <a href="#goals">Goals</a>
-            <a href="gallery.html">Gallery</a>
+            <a href="#gallery">Gallery</a>
             <a href="#qa">Q&amp;A</a>
             <a href="#contact">Contact</a>
         </div>
@@ -69,95 +69,46 @@
             <img src="images/profile.png" alt="Profile picture of Saville">
 
             <h2>About Me</h2>
+            <p>
+                I was born in California and grew up in Utah. I moved around a lot,
+                exploring much of the western United States, including Washington,
+                Oregon, California, Idaho, Nevada, Utah, Montana, and Wyoming. To 
+				pass the time, I would draw, write or getting hands on with anything 
+				that kept me busy and out of trouble. I use to enjoy playing with 
+				Bionicles and Legos to help with this. I also was a Boy Scout for 
+				close to a decade, which is where I really developed my interest in 
+				the outdoors and getting training in wilderness survival. 
+            </p>
 
-				<p>
-					I was born in California and grew up in Utah. Over the years, I moved around a lot
-					and spent time across much of the western United States, including Washington,
-					Oregon, California, Idaho, Nevada, Utah, Montana, and Wyoming.
-				</p>
+            <h2>Introduction</h2>
+            <p>
+                I’m someone who digs deeper than most. I don’t settle for surface-level answers—I want
+                to understand how things really work, whether it’s human behavior, societal systems,
+                survival strategies, or my own development.
+            </p>
 
-				<p>
-					To pass the time, I drew, wrote, and stayed hands-on with anything that kept me busy
-					and out of trouble. I also enjoyed building with Bionicles and Legos, which helped
-					shape my creativity early on. I was a Boy Scout for close to a decade, and that is
-					where I really developed my interest in the outdoors, wilderness survival, and practical skills.
-				</p>
+            <p>
+                I’m grounded and self-aware. I know my limits, but I continue to push for growth where
+                it matters. There’s a thoughtful intensity to how I analyze people and systems, and a
+                solitude in how I approach the world—like I’m quietly laying the groundwork for something
+                better.
+            </p>
 
-			<h2>Introduction</h2>
+            <p>
+                Whether it's preparing for a future family, building resilience, or seeking peace, I do
+                it deliberately and on my own terms.
+            </p>
 
-				<p><strong>Build quietly. Show up when it matters. Create what others overlook.</strong></p>
+            <p>
+                You could call me a <strong>quiet builder</strong>—someone who sees the flaws in things
+                but doesn’t give up on trying to fix what I can. Even when life stacks the odds
+                financially, mentally, or socially, I recalibrate. I adapt. I keep going.
+            </p>
 
-				<p>
-					I do not just build projects—I build systems, ideas, and experiences rooted in real life.
-					What I create comes from observation, responsibility, and a drive to turn lived experience
-					into something meaningful.
-				</p>
-
-				<p>
-					I did not choose responsibility early on—it was something I grew into. Being the one who stayed,
-					showed up, and handled things when others could not shaped how I see the world. It taught me
-					to observe closely, think ahead, and build stability where there was not always any.
-				</p>
-
-				<p>
-					Over time, that became a mindset: consistency over hype, systems over shortcuts, and meaning
-					over surface-level results. I do not just want to manage what already exists—I want to create
-					things that reflect real experiences, real thoughts, and the deeper layers of life people do not
-					always talk about.
-				</p>
-
-				<p>
-					Whether through code, design, writing, or media, my goal is to turn what is internal into
-					something others can see, feel, and connect with. I am not here to follow trends. I am here
-					to build things that last—and that actually matter.
-				</p>
-
-				<h2>What I Value</h2>
-				<ul>
-					<li>Showing up when it matters</li>
-					<li>Taking risks instead of avoiding them</li>
-					<li>Solving problems instead of ignoring them</li>
-					<li>Building something better, even if it takes time</li>
-					<li>Consistency over empty talk</li>
-					<li>Depth over surface-level thinking</li>
-				</ul>
-
-				<h2>Long-Term Direction</h2>
-				<p>
-					I am working toward building a creative and technical studio where I can develop projects,
-					share ideas and experiences, and create work that connects with people on a deeper level.
-					This portfolio is part of that foundation.
-				</p>
-
-				<h2>Mindset</h2>
-				<p>
-					I am someone who digs deeper than most. I do not settle for surface-level answers—I want
-					to understand how things really work, whether that is human behavior, social systems,
-					survival, or my own development.
-				</p>
-
-				<p>
-					I am grounded and self-aware. I know my limits, but I continue to push for growth where
-					it matters. There is a thoughtful intensity in the way I analyze people and systems, and
-					a solitude in the way I approach the world—like I am quietly laying the groundwork for
-					something better.
-				</p>
-
-				<p>
-					Whether it is preparing for a future family, building resilience, or seeking peace, I do
-					it deliberately and on my own terms.
-				</p>
-
-				<p>
-					You could call me a <strong>quiet builder</strong>—someone who sees the flaws in things
-					but does not give up on trying to improve what he can. Even when life stacks the odds
-					financially, mentally, or socially, I recalibrate, adapt, and keep going.
-				</p>
-
-				<p>
-					In a world that often prizes speed and flash, quiet builders tend to go unnoticed.
-					But they build foundations that last.
-				</p>
+            <p>
+                In a world that prizes flash and speed, quiet builders often go unnoticed. But we build
+                foundations that last.
+            </p>
 			
 			<h2>Education</h2>
 			<p>So, I went to a lot of different schools growing up. Which made it easy to make new friends, however, made it difficult to keep friends</p>
@@ -342,7 +293,6 @@
                 <li>I enjoy solving problems, especially when the solution is clear, useful, and efficient.</li>
                 <li>I collect trading cards and enjoy games that involve strategy, planning, and creative thinking.</li>
                 <li>I tend to prefer building steady progress over chasing quick results.</li>
-				<li>I am a decendent of a Mormon Prophet. I am also the oldest out of 6 siblings, the oldest cousin on my mothers side and the fourth oldest on my fathers side. </li>
             </ul>
 
             <h2>Hobbies and Interests</h2>
@@ -520,83 +470,25 @@
 			 GALLERY SECTION
 			 Automatically displays images from images/gallery/
 		========================================= -->
-<?php
-$teamMembers = [
-	[
-		"name" => "Saville Young IV",
-		"title" => "CEO & Founder",
-		"description" => "I am excited about continuing my experience in programming.",
-		"email" => "savillionuniversal@gmail.com",
-		"image" => "images/ceo.jpg"
-	],
-	[
-		"name" => "Mike Ross",
-		"title" => "Art Director",
-		"description" => "Creative direction and visual design.",
-		"email" => "mike@example.com",
-		"image" => "images/asdf.avif"
-	],
-	[
-		"name" => "Johnny Doe",
-		"title" => "Designer",
-		"description" => "Focused on user experience and layout.",
-		"email" => "john@example.com",
-		"image" => "images/artdirector.jpg"
-	],
-	[
-		"name" => "Jane Doe",
-		"title" => "HR Director",
-		"description" => "Manages team operations and hiring.",
-		"email" => "jane@example.com",
-		"image" => "images/hrdirector1.jpg"
-	],
-	[
-		"name" => "John Doe",
-		"title" => "Designer",
-		"description" => "Additional design support.",
-		"email" => "john@example.com",
-		"image" => "images/militia.jpg"
-	],
-	[
-		"name" => "Mary Jane",
-		"title" => "Customer Service",
-		"description" => "Handles customer interactions.",
-		"email" => "mary@example.com",
-		"image" => "images/custservrep.WEBP"
-	]
-];
-?>
+		<section class="card" id="gallery">
+			<h2>Gallery</h2>
+			<p>
+				This section displays images from the <strong>images/gallery/</strong> folder.
+				To add new gallery images, place them in that folder.
+			</p>
 
-<h2 style="text-align:center">Our Team</h2>
-
-<div class="row">
-
-<?php foreach ($teamMembers as $member): ?>
-	<div class="column">
-		<div class="card">
-
-			<img src="<?php echo htmlspecialchars($member['image']); ?>" 
-			     alt="<?php echo htmlspecialchars($member['name']); ?>" 
-			     style="width:100%; height:50%;">
-
-			<div class="container">
-				<h2><?php echo htmlspecialchars($member['name']); ?></h2>
-				<p class="title"><?php echo htmlspecialchars($member['title']); ?></p>
-				<p><?php echo htmlspecialchars($member['description']); ?></p>
-				<p><?php echo htmlspecialchars($member['email']); ?></p>
-
-				<p>
-					<a href="mailto:<?php echo htmlspecialchars($member['email']); ?>" class="button">
-						Contact
-					</a>
-				</p>
+			<div class="gallery-grid">
+				<?php if (!empty($galleryImages)): ?>
+					<?php foreach ($galleryImages as $image): ?>
+						<div class="gallery-item">
+							<img src="<?php echo htmlspecialchars($image); ?>" alt="Gallery image">
+						</div>
+					<?php endforeach; ?>
+				<?php else: ?>
+					<p>No gallery images found yet. Add images to <strong>images/gallery/</strong>.</p>
+				<?php endif; ?>
 			</div>
-
-		</div>
-	</div>
-<?php endforeach; ?>
-
-</div>
+		</section>
 
 		<!-- ========================================
 			 Q&A SECTION

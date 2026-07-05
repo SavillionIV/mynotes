@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Tells the browser what character set to use -->
+    <meta charset="UTF-8">
+
+    <!-- Makes the page scale properly on phones, tablets, and smaller screens -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- The text shown in the browser tab -->
+    <title>Household Essentials</title>
+
+    <style>
+        /* Reset some default browser spacing and make sizing easier to control */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Main page styling */
+        body {
+            background-color: lightblue;     /* Page background color */
+            color: white;                    /* Default text color */
+            font-family: Arial, sans-serif;  /* Font style */
+            text-align: center;              /* Centers text by default */
+            min-height: 100vh;               /* Makes body at least full screen height */
+            display: flex;                   /* Allows layout control */
+            flex-direction: column;          /* Stacks content vertically */
+        }
+
+        /* Main heading style */
+        h1 {
+            color: cyan;
+            margin-bottom: 15px;
+        }
+
+        /* Section heading style */
+        h2 {
+            color: orange;
+            margin-bottom: 10px;
+        }
+
+        /* Paragraph styling */
+        p {
+            font-size: 18px;
+        }
+
+        /* Navigation bar at the top */
+        .navbar {
+            display: flex;                    /* Places items in a row */
+            justify-content: space-between;   /* Pushes logo left and menu right */
+            align-items: center;              /* Vertically aligns items */
+            background: black;                /* Black background */
+            color: white;                     /* White text */
+            padding: 15px 20px;               /* Space inside the navbar */
+            flex-wrap: wrap;                  /* Lets items wrap on smaller screens */
+            gap: 15px;                        /* Adds spacing between wrapped items */
+        }
+
+        /* Logo text area */
+        .logo a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Navigation menu list */
+        .menu {
+            display: flex;
+            list-style: none;   /* Removes bullet points */
+            gap: 20px;          /* Adds space between menu items */
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        /* Style for links inside the menu */
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Hover effect for links */
+        .menu a:hover {
+            color: cyan;
+        }
+
+        /* Search box styling */
+        .search-box {
+            padding: 8px;
+            border: none;
+            border-radius: 6px;
+            outline: none;
+        }
+
+        /* Main content wrapper */
+        .content {
+            display: grid;                           /* Uses grid layout */
+            grid-template-columns: 1fr 2fr 1fr;     /* Left, middle, right columns */
+            gap: 20px;                               /* Space between columns */
+            padding: 20px;
+            align-items: start;
+        }
+
+        /* Shared panel style */
+        .panel {
+            background: rgba(0, 0, 0, 0.25); /* Slight dark transparent background */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* Center main section */
+        .main img {
+            width: 200px;          /* Fixed image width */
+            max-width: 100%;       /* Keeps image responsive */
+            height: auto;          /* Maintains image shape */
+            border-radius: 10px;   /* Rounded corners */
+            margin-top: 15px;
+        }
+
+        /* Buttons */
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 6px;
+            background-color: black;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Button hover effect */
+        button:hover {
+            background-color: #333;
+        }
+
+        /* Footer styling */
+        .footer {
+            background: black;
+            padding: 15px;
+            margin-top: auto; /* Pushes footer to bottom */
+        }
+
+        /* Styling for list items in Projects and News */
+        .item-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .item-list li {
+            background: rgba(255, 255, 255, 0.1);
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 6px;
+        }
+
+        /* Dark mode styles added when JS toggles the body class */
+        .dark-mode {
+            background-color: #121212;
+            color: #f1f1f1;
+        }
+
+        .dark-mode .panel {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .dark-mode .navbar,
+        .dark-mode .footer,
+        .dark-mode button {
+            background-color: #1f1f1f;
+        }
+
+        /* Makes the page stack nicely on smaller screens */
+        @media (max-width: 900px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top navigation area -->
+    <nav class="navbar">
+        <!-- Website logo/title -->
+        <div class="logo">
+            <a href="index1.html">Household Essentials</a>
+        </div>
+
+        <!-- Navigation links and search -->
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="project.html">Projects</a></li>
+            <li><a href="calendar.html">Calendar</a></li>
+            <li><a href="login.html">Log In</a></li>
+            <li>
+                <!-- Search box used by JavaScript -->
+                <input
+                    type="search"
+                    id="searchInput"
+                    class="search-box"
+                    placeholder="Search projects or news..."
+                >
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Date and time display -->
+    <section class="panel" style="margin: 20px;">
+        <h2>Current Date and Time</h2>
+        <p id="dateTime">Loading date and time...</p>
+    </section>
+
+    <!-- Main page layout -->
+    <div class="content">
+
+        <!-- Left side content -->
+        <section class="panel left">
+            <h2>Projects</h2>
+            <ul class="item-list" id="projectList">
+                <li>Fix kitchen sink</li>
+                <li>Organize garage</li>
+                <li>Clean air filters</li>
+                <li>Paint hallway wall</li>
+            </ul>
+        </section>
+
+        <!-- Center content -->
+        <section class="panel main">
+            <h1>Household Essentials</h1>
+            <p>Welcome to the household management page.</p>
+
+            <!-- Main image -->
+            <img id="mainImage" src="images/1127.jpg" alt="Trippy Aliens">
+
+            <!-- Button to show or hide the image -->
+            <button id="toggleImageBtn">Hide Image</button>
+
+            <!-- Button to turn dark mode on and off -->
+            <button id="darkModeBtn">Toggle Dark Mode</button>
+        </section>
+
+        <!-- Right side content -->
+        <section class="panel right">
+            <h2>News</h2>
+            <ul class="item-list" id="newsList">
+                <li>Trash pickup moved to Thursday</li>
+                <li>Need more paper towels</li>
+                <li>Garage light needs replacing</li>
+                <li>Yard work scheduled for Saturday</li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; <span id="year"></span> Household Essentials</p>
+    </footer>
+
+    <script>
+        // Wait until the HTML page has fully loaded before running JavaScript
+        document.addEventListener("DOMContentLoaded", function () {
+
+            // -------------------------------
+            // 1. AUTOMATIC YEAR IN FOOTER
+            // -------------------------------
+
+            // Get the current year from the user's computer
+            const currentYear = new Date().getFullYear();
+
+            // Put that year into the span with id="year"
+            document.getElementById("year").textContent = currentYear;
+
+
+            // -------------------------------
+            // 2. LIVE DATE AND TIME DISPLAY
+            // -------------------------------
+
+            // Find the paragraph where the date/time will appear
+            const dateTimeElement = document.getElementById("dateTime");
+
+            // Function to update the date and time
+            function updateDateTime() {
+                const now = new Date(); // Gets the current date/time
+                dateTimeElement.textContent = now.toLocaleString(); // Formats it nicely
+            }
+
+            // Run it once immediately
+            updateDateTime();
+
+            // Update it every second
+            setInterval(updateDateTime, 1000);
+
+
+            // -------------------------------
+            // 3. IMAGE SHOW / HIDE BUTTON
+            // -------------------------------
+
+            // Get the image and button from the page
+            const mainImage = document.getElementById("mainImage");
+            const toggleImageBtn = document.getElementById("toggleImageBtn");
+
+            // Add a click event to the button
+            toggleImageBtn.addEventListener("click", function () {
+                // If the image is currently hidden, show it
+                if (mainImage.style.display === "none") {
+                    mainImage.style.display = "block";
+                    toggleImageBtn.textContent = "Hide Image";
+                } else {
+                    // Otherwise, hide it
+                    mainImage.style.display = "none";
+                    toggleImageBtn.textContent = "Show Image";
+                }
+            });
+
+
+            // -------------------------------
+            // 4. DARK MODE TOGGLE
+            // -------------------------------
+
+            // Get the dark mode button
+            const darkModeBtn = document.getElementById("darkModeBtn");
+
+            // Add click behavior to it
+            darkModeBtn.addEventListener("click", function () {
+                // Toggle the "dark-mode" class on the body
+                document.body.classList.toggle("dark-mode");
+            });
+
+
+            // -------------------------------
+            // 5. LIVE SEARCH FILTER
+            // -------------------------------
+
+            // Get the search input field
+            const searchInput = document.getElementById("searchInput");
+
+            // Get all list items from both Projects and News
+            const projectItems = document.querySelectorAll("#projectList li");
+            const newsItems = document.querySelectorAll("#newsList li");
+
+            // Function that filters list items based on what the user types
+            function filterItems() {
+                // Convert typed text to lowercase so search is not case-sensitive
+                const searchText = searchInput.value.toLowerCase();
+
+                // Check each project item
+                projectItems.forEach(function (item) {
+                    const text = item.textContent.toLowerCase();
+
+                    // Show item if it matches search, otherwise hide it
+                    item.style.display = text.includes(searchText) ? "block" : "none";
+                });
+
+                // Check each news item
+                newsItems.forEach(function (item) {
+                    const text = item.textContent.toLowerCase();
+
+                    // Show item if it matches search, otherwise hide it
+                    item.style.display = text.includes(searchText) ? "block" : "none";
+                });
+            }
+
+            // Run filter function every time user types in the search box
+            searchInput.addEventListener("input", filterItems);
+        });
+    </script>
+</body>
+</html>

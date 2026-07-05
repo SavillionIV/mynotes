@@ -1,0 +1,777 @@
+/*INTRODUCTION*/
+/* ==========================================================================================
+CSS (Cascading Style Sheets) is the language used to control the appearance and layout 
+of HTML documents.
+
+While HTML provides the structure of a webpage (the skeleton), CSS is responsible for 
+how that structure looks and behaves visually (the skin and presentation).
+
+CSS allows you to:
+- Control colors, fonts, spacing, and positioning
+- Design layouts for entire pages or specific elements
+- Create responsive designs that adapt to different screen sizes
+- Add visual effects such as transitions, animations, and hover states
+
+--------------------------------------------------------------------------------------------
+
+HOW CSS WORKS
+CSS works by selecting HTML elements and applying styles to them.
+
+Basic structure:
+selector {
+    property: value;
+}
+
+Example:
+h1 {
+    color: red;
+    font-size: 24px;
+}
+
+--------------------------------------------------------------------------------------------
+
+WAYS TO USE CSS
+There are three main ways to apply CSS:
+
+1. Inline CSS
+   - Applied directly inside an HTML element
+   - Example:
+     <p style="color: red;">Text</p>
+   - Not recommended for large projects (hard to maintain)
+
+2. Internal CSS
+   - Written inside a <style> tag in the <head> of an HTML file
+   - Useful for single-page styling
+
+3. External CSS (BEST PRACTICE)
+   - Stored in a separate .css file
+   - Linked to HTML using:
+     <link rel="stylesheet" href="style.css">
+   - Allows consistent styling across multiple pages
+
+--------------------------------------------------------------------------------------------
+
+WHY CSS MATTERS
+- Keeps design separate from structure
+- Makes websites easier to maintain and scale
+- Allows reuse of styles across multiple pages
+- Improves performance and organization
+
+--------------------------------------------------------------------------------------------
+
+RESPONSIVE DESIGN
+CSS allows websites to adapt to different devices such as:
+- Phones
+- Tablets
+- Desktops
+
+This is commonly done using:
+- Flexbox
+- Grid
+- Media Queries
+
+--------------------------------------------------------------------------------------------
+
+NOTE
+A well-structured CSS file can control the entire look of a website.
+Changing a single file can update every page instantly, making CSS a powerful
+tool for building scalable and maintainable websites.
+========================================================================================== */
+
+/* SYNTAX */
+/* ==========================================================================================
+A CSS rule is made up of two main parts:
+1. Selector
+2. Declaration Block
+
+Basic structure:
+selector {
+    property: value;
+}
+
+Example:
+h1 {
+    color: blue;
+    font-size: 12px;
+}
+
+--------------------------------------------------------------------------------------------
+
+SELECTOR
+The selector targets the HTML element(s) you want to style.
+
+Examples:
+h1          -> selects all <h1> elements
+p           -> selects all <p> elements
+.className  -> selects elements with a class
+#idName     -> selects an element with a specific ID
+
+--------------------------------------------------------------------------------------------
+
+DECLARATION BLOCK
+The declaration block contains one or more declarations inside curly braces { }.
+
+Each declaration:
+- consists of a property and a value
+- is separated by a colon (:)
+- ends with a semicolon (;)
+
+Example:
+p {
+    color: red;
+    text-align: center;
+}
+
+--------------------------------------------------------------------------------------------
+
+DECLARATION BREAKDOWN
+
+p {
+    color: red;
+    text-align: center;
+}
+
+Explanation:
+- p → selector (targets all <p> elements)
+- color → property (what you want to change)
+- red → value (what you change it to)
+- text-align → property
+- center → value
+
+--------------------------------------------------------------------------------------------
+
+IMPORTANT RULES
+- Each declaration MUST end with a semicolon (;)
+- Property and value MUST be separated by a colon (:)
+- Declaration blocks MUST be wrapped in curly braces { }
+- Multiple declarations can exist inside one block
+
+--------------------------------------------------------------------------------------------
+
+MULTIPLE DECLARATIONS EXAMPLE
+
+h1 {
+    color: blue;
+    font-size: 24px;
+    text-align: center;
+}
+
+--------------------------------------------------------------------------------------------
+
+FORMATTING (BEST PRACTICE)
+For readability, place each declaration on its own line:
+
+GOOD:
+p {
+    color: red;
+    font-size: 16px;
+}
+
+NOT RECOMMENDED (harder to read):
+p {color:red; font-size:16px;}
+
+--------------------------------------------------------------------------------------------
+
+NOTE
+Understanding CSS syntax is foundational. Every style rule you write will follow
+this same structure, whether simple or complex.
+========================================================================================== */
+
+/* CSS SELECTORS */
+/* ==========================================================================================
+Selectors are used to target ("select") HTML elements so styles can be applied to them.
+
+CSS selectors can be grouped into five main categories:
+
+1. Simple selectors        (element, id, class)
+2. Combinator selectors    (relationships between elements)
+3. Pseudo-class selectors  (states like hover, active)
+4. Pseudo-element selectors (parts of elements)
+5. Attribute selectors     (based on attributes/values)
+
+This section focuses on the most basic selectors.
+
+--------------------------------------------------------------------------------------------
+
+ELEMENT SELECTOR
+Selects all elements of a given type.
+
+Example:
+p {
+    text-align: center;
+    color: red;
+}
+
+→ Targets all <p> elements
+
+--------------------------------------------------------------------------------------------
+
+ID SELECTOR
+Selects ONE unique element using its id attribute.
+
+Syntax:
+#idName
+
+Example:
+#para1 {
+    text-align: center;
+    color: red;
+}
+
+→ Targets: <element id="para1">
+
+IMPORTANT:
+- IDs must be unique per page
+- IDs cannot start with a number
+
+--------------------------------------------------------------------------------------------
+
+CLASS SELECTOR
+Selects elements with a specific class.
+
+Syntax:
+.className
+
+Example:
+.center {
+    text-align: center;
+    color: red;
+}
+
+→ Targets all elements with class="center"
+
+--------------------------------------------------------------------------------------------
+
+ELEMENT + CLASS COMBINATION
+Targets specific elements with a class.
+
+Example:
+p.center {
+    text-align: center;
+    color: red;
+}
+
+→ Targets ONLY <p class="center">
+
+--------------------------------------------------------------------------------------------
+
+MULTIPLE CLASSES
+An element can have multiple classes applied.
+
+Example:
+<p class="center large">Text</p>
+
+→ CSS can apply both:
+.center { ... }
+.large { ... }
+
+--------------------------------------------------------------------------------------------
+
+UNIVERSAL SELECTOR
+Selects ALL elements on the page.
+
+Syntax:
+*
+
+Example:
+* {
+    text-align: center;
+    color: blue;
+}
+
+→ Use carefully (can affect performance and override too much)
+
+--------------------------------------------------------------------------------------------
+
+GROUPING SELECTORS
+Applies the same styles to multiple selectors.
+
+BAD (repetitive):
+h1 {
+    text-align: center;
+    color: red;
+}
+
+h2 {
+    text-align: center;
+    color: red;
+}
+
+p {
+    text-align: center;
+    color: red;
+}
+
+GOOD (grouped):
+h1, h2, p {
+    text-align: center;
+    color: red;
+}
+
+→ Cleaner and easier to maintain
+
+--------------------------------------------------------------------------------------------
+
+SELECTOR SUMMARY TABLE
+
+#id         → #firstname     → Selects element with id="firstname"
+.class      → .intro         → Selects all elements with class="intro"
+*           → *              → Selects all elements
+element     → p              → Selects all <p> elements
+grouping    → div, p         → Selects all <div> and <p> elements
+
+--------------------------------------------------------------------------------------------
+
+COMMON MISTAKES
+- Using IDs multiple times (should be unique)
+- Forgetting the "." for class or "#" for id
+- Overusing the universal selector (*)
+- Not grouping selectors when possible
+
+--------------------------------------------------------------------------------------------
+
+PRACTICE CHALLENGE
+
+Try writing the following:
+
+1. Set all <p> elements to color: dimgray
+2. Set .highlight background-color to yellow
+3. Set #intro font-size to 20px
+
+Example Solution:
+
+p {
+    color: dimgray;
+}
+
+.highlight {
+    background-color: yellow;
+}
+
+#intro {
+    font-size: 20px;
+}
+
+--------------------------------------------------------------------------------------------
+
+NOTE
+Selectors are the foundation of CSS. Mastering how to target elements correctly
+will make everything else (layout, responsiveness, design) much easier.
+========================================================================================== */
+
+/*How to Add*/
+/*========================================================================================
+How to Add CSS
+
+When a browser reads a style sheet, it will format the HTML document according to the information in the style sheet.
+
+There are three ways of inserting a style sheet:
+
+    External CSS - link to an external .css file
+    Internal CSS - use the <style> element in the head section
+    Inline CSS - use the style attribute on HTML elements
+
+External CSS
+
+With an external style sheet, you can change the look of an entire website by changing just one file!
+
+Each HTML page must include a reference to the external style sheet file inside the <link> element, inside the head section.
+Example
+
+External styles are defined within the <link> element, inside the <head> section of an HTML page:
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+
+<h1>This is a heading</h1>
+<p>This is a paragraph.</p>
+
+</body>
+</html>
+
+An external style sheet can be written in any text editor, and must be saved with a .css extension.
+
+The external .css file should not contain any HTML tags.
+
+Here is how the "mystyle.css" file looks:
+"mystyle.css"
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: navy;
+  margin-left: 20px;
+}
+
+Note: Do not add a space between the property value (20) and the unit (px):
+Incorrect (space): margin-left: 20 px;
+Correct (no space): margin-left: 20px;
+
+Internal CSS
+
+An internal style sheet may be used if one single HTML page has a unique style.
+
+The internal style is defined inside the <style> element, inside the head section.
+Example
+
+Internal styles are defined within the <style> element, inside the <head> section of an HTML page:
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: linen;
+}
+
+h1 {
+  color: maroon;
+  margin-left: 40px;
+}
+</style>
+</head>
+<body>
+
+<h1>This is a heading</h1>
+<p>This is a paragraph.</p>
+
+</body>
+</html> 
+
+Inline CSS
+
+An inline style may be used to apply a unique style for a single element.
+
+To use inline styles, add the style attribute to the relevant element. The style attribute can contain any CSS property.
+Example
+
+Inline styles are defined within the "style" attribute of the relevant element:
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1 style="color:blue;text-align:center;">This is a heading</h1>
+<p style="color:red;">This is a paragraph.</p>
+
+</body>
+</html>
+
+Tip: An inline style loses many of the advantages of a style sheet (by mixing content with presentation). Use this method sparingly.
+
+Multiple Style Sheets
+
+If some properties have been defined for the same selector (element) in different style sheets, the value from the last read style sheet will be used. 
+
+Assume that an external style sheet has the following style for the <h1> element:
+h1 {
+  color: navy;
+}
+
+Then, assume that an internal style sheet also has the following style for the <h1> element:
+h1 {
+  color: orange;   
+}
+Example
+
+If the internal style is defined after the link to the external style sheet, the <h1> elements will be "orange":
+<head>
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+<style>
+h1 {
+  color: orange;
+}
+</style>
+</head>
+Example
+
+However, if the internal style is defined before the link to the external style sheet, the <h1> elements will be "navy": 
+<head>
+<style>
+h1 {
+  color: orange;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+</head> 
+
+Cascading Order
+
+What style will be used when there is more than one style specified for an HTML element?
+
+All the styles in a page will "cascade" into a new "virtual" style sheet by the following rules, where number one has the highest priority:
+
+    Inline style (inside an HTML element)
+    External and internal style sheets (in the head section)
+    Browser default
+
+So, an inline style has the highest priority, and will override external and internal styles and browser defaults.
+
+Challenge: How To Add CSS
+
+Test your understanding of CSS by completing a small coding challenge.
+Instructions
+Inside the editor, complete the following steps:
+
+    Add an external stylesheet by inserting a <link> element with rel "stylesheet" and href "mystyle.css"
+    Add an internal stylesheet: inside the <style> tag, set h1 color to navy
+    Add an inline style: on the <p> element, set color to red
+==========================================================================================*/
+
+/* CSS COMMENTS */
+/* ==========================================================================================
+Comments are used to explain code and improve readability.
+
+They are also useful for:
+- Leaving notes for yourself or others
+- Temporarily disabling code
+- Organizing sections
+
+IMPORTANT:
+- Comments are ignored by the browser
+- They do NOT affect how the page is displayed
+
+--------------------------------------------------------------------------------------------
+
+SYNTAX
+
+/* This is a comment * /
+
+--------------------------------------------------------------------------------------------
+
+EXAMPLES
+
+Single-line comment:
+p {
+    color: red; /* This sets text color * /
+}
+
+Multi-line comment:
+/*
+This is a multi-line comment
+used for larger explanations
+* /
+
+--------------------------------------------------------------------------------------------
+
+COMMON USES
+
+- Debugging:
+  /* color: blue; * /
+
+- Section labeling:
+  /* ===== HEADER STYLES ===== * /
+
+--------------------------------------------------------------------------------------------
+
+HTML vs CSS COMMENTS
+
+HTML:
+<!-- This is an HTML comment -->
+
+CSS:
+/* This is a CSS comment * /
+
+--------------------------------------------------------------------------------------------
+
+NOTE
+Good commenting helps future-you understand your own code faster.
+========================================================================================== */
+
+/* CSS ERRORS */
+/* ==========================================================================================
+CSS is forgiving — it will ignore invalid code instead of crashing.
+
+This means:
+- Your page will still load
+- But styles may not work as expected
+
+--------------------------------------------------------------------------------------------
+
+COMMON ERRORS
+
+1. INVALID VALUES
+
+.bad {
+    width: -100px;   /* invalid → ignored * /
+    color: green;    /* still applied * /
+}
+
+--------------------------------------------------------------------------------------------
+
+2. UNCLOSED BRACES
+
+.bad {
+    padding: 20px;
+    margin: 10px;
+/* missing } → entire rule may break * /
+
+--------------------------------------------------------------------------------------------
+
+3. SYNTAX ERRORS
+
+.bad {
+    color:: blue;   /* double colon → invalid * /
+}
+
+--------------------------------------------------------------------------------------------
+
+4. MISSPELLED PROPERTIES
+
+.bad {
+    colr: red;  /* ignored * /
+}
+
+--------------------------------------------------------------------------------------------
+
+5. COMMENT BREAKING CODE
+
+/* Incorrect:
+color: red; /* comment * /
+
+Correct:
+color: red; /* comment * /
+
+--------------------------------------------------------------------------------------------
+
+DEBUGGING TIPS
+
+- Use a code editor with syntax highlighting
+- Check browser DevTools (Inspect Element)
+- Write code in small sections
+- Test frequently
+
+--------------------------------------------------------------------------------------------
+
+NOTE
+If CSS "isn't working", it’s usually:
+- specificity
+- syntax error
+- or wrong selector
+========================================================================================== */
+
+/* CSS COLORS */
+/* ==========================================================================================
+CSS colors can be defined in multiple ways:
+
+- Color names
+- RGB / RGBA
+- HEX
+- HSL / HSLA
+
+--------------------------------------------------------------------------------------------
+
+COLOR NAMES
+
+Example:
+h1 {
+    color: tomato;
+}
+
+→ Simple, readable, limited control
+
+--------------------------------------------------------------------------------------------
+
+RGB
+
+rgb(red, green, blue)
+
+Each value: 0–255
+
+Example:
+color: rgb(255, 0, 0);   /* red */
+color: rgb(0, 0, 0);     /* black */
+color: rgb(255, 255, 255); /* white */
+
+--------------------------------------------------------------------------------------------
+
+RGBA (WITH TRANSPARENCY)
+
+rgba(red, green, blue, alpha)
+
+Alpha: 0 (transparent) → 1 (solid)
+
+Example:
+color: rgba(255, 0, 0, 0.5);
+
+--------------------------------------------------------------------------------------------
+
+HEX
+
+#RRGGBB
+
+Example:
+color: #ff0000;   /* red * /
+color: #000000;   /* black * /
+color: #ffffff;   /* white * /
+
+SHORT HEX:
+#f00 → same as #ff0000
+
+--------------------------------------------------------------------------------------------
+
+HSL
+
+hsl(hue, saturation, lightness)
+
+Example:
+color: hsl(0, 100%, 50%);  /* red */
+
+- Hue: 0–360 (color wheel)
+- Saturation: 0%–100%
+- Lightness: 0%–100%
+
+--------------------------------------------------------------------------------------------
+
+HSLA
+
+hsla(h, s, l, alpha)
+
+Example:
+color: hsla(0, 100%, 50%, 0.5);
+
+--------------------------------------------------------------------------------------------
+
+WHEN TO USE WHAT
+
+- HEX → most common for design
+- RGB → useful for calculations
+- RGBA → transparency
+- HSL → easier color adjustments
+
+--------------------------------------------------------------------------------------------
+
+COMMON USES
+
+Text:
+color: red;
+
+Background:
+background-color: blue;
+
+Border:
+border: 2px solid green;
+
+--------------------------------------------------------------------------------------------
+
+PRACTICE CHALLENGE
+
+h1 {
+    color: tomato;
+}
+
+h2 {
+    color: #1e90ff;
+}
+
+p {
+    color: rgb(60, 179, 113);
+}
+
+--------------------------------------------------------------------------------------------
+
+NOTE
+Understanding color formats helps with design, theming, and consistency.
+========================================================================================== */

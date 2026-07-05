@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saville's Portfolio | Stories</title>
+  <style>
+    :root {
+      --bg: #0a0a0d;
+      --panel: #111116;
+      --panel-2: #181821;
+      --line: #2c2c36;
+      --text: #f2f2f5;
+      --muted: #a9a9b3;
+      --accent: #8b0000;
+      --accent-2: #c1121f;
+      --soft: rgba(193, 18, 31, 0.12);
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        radial-gradient(circle at top, rgba(139, 0, 0, 0.14), transparent 28%),
+        linear-gradient(180deg, #07070a 0%, #0d0d12 100%);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    .site-shell {
+      width: min(1400px, 94vw);
+      margin: 24px auto;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(10, 10, 14, 0.88);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(8px);
+    }
+
+    .topbar {
+      padding: 28px 28px 14px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+    }
+
+    .brand {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .brand h1 {
+      font-size: clamp(2rem, 3vw, 3rem);
+      letter-spacing: 0.04em;
+      font-weight: 600;
+    }
+
+    .brand p {
+      color: var(--muted);
+      font-size: 0.98rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .nav-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .nav-links a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--muted);
+      border: 1px solid transparent;
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+      border-color: var(--line);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .user-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .search-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: min(320px, 100%);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 10px 16px;
+    }
+
+    .search-wrap span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .search-wrap input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+    }
+
+    .sign-in {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(193,18,31,0.16), rgba(193,18,31,0.06));
+      color: var(--text);
+      padding: 10px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .sign-in:hover,
+    .story-list button:hover,
+    .feature-card:hover,
+    .cta-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 22px;
+      padding: 22px;
+    }
+
+    .panel {
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      min-height: 760px;
+    }
+
+    .panel-head {
+      padding: 18px 18px 14px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .panel-head h2,
+    .story-hero h2 {
+      font-size: 1.5rem;
+      margin-bottom: 4px;
+    }
+
+    .panel-head p,
+    .story-hero p,
+    .story-section p,
+    .feature-card p,
+    .cta-card p,
+    .muted {
+      color: var(--muted);
+    }
+
+    .story-list {
+      list-style: none;
+      padding: 12px;
+      display: grid;
+      gap: 10px;
+      max-height: 420px;
+      overflow-y: auto;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .story-list button {
+      width: 100%;
+      text-align: left;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--text);
+      padding: 14px 14px;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .story-list button small {
+      display: block;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .story-list button.active {
+      background: linear-gradient(180deg, rgba(193,18,31,0.18), rgba(193,18,31,0.06));
+      border-color: rgba(193,18,31,0.55);
+      box-shadow: inset 0 0 0 1px rgba(193,18,31,0.15);
+    }
+
+    .future-box {
+      margin: 16px;
+      margin-top: auto;
+      padding: 20px;
+      border: 1px dashed rgba(193,18,31,0.45);
+      border-radius: 22px;
+      min-height: 220px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background: radial-gradient(circle at center, rgba(193,18,31,0.12), transparent 70%);
+      color: var(--muted);
+    }
+
+    .content-panel {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      min-height: 760px;
+    }
+
+    .story-hero {
+      padding: 24px 26px 18px;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(193,18,31,0.10), transparent),
+        rgba(255,255,255,0.015);
+    }
+
+    .story-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--soft);
+      border: 1px solid rgba(193,18,31,0.35);
+      color: #f3c5c8;
+      font-size: 0.9rem;
+    }
+
+    .story-body {
+      padding: 24px 26px 30px;
+      overflow-y: auto;
+    }
+
+    .story-section + .story-section {
+      margin-top: 26px;
+    }
+
+    .story-section h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: #fff0f0;
+    }
+
+    .story-section p + p {
+      margin-top: 12px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .feature-card {
+      padding: 16px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      transition: 0.2s ease;
+    }
+
+    .feature-card h4 {
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .cta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .cta-card {
+      min-height: 118px;
+      padding: 20px;
+      border-right: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+      transition: 0.2s ease;
+    }
+
+    .cta-card:last-child {
+      border-right: none;
+    }
+
+    .cta-card h4 {
+      font-size: 1.08rem;
+    }
+
+    .cta-card a {
+      color: #f5cccc;
+      font-size: 0.92rem;
+    }
+
+    .footer-strip {
+      border-top: 1px solid var(--line);
+      padding: 16px 24px;
+      color: var(--muted);
+      background: rgba(255,255,255,0.015);
+      text-align: center;
+    }
+
+    @media (max-width: 1100px) {
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar,
+      .content-panel {
+        min-height: auto;
+      }
+
+      .story-list {
+        max-height: 320px;
+      }
+
+      .cta-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 700px) {
+      .site-shell {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+      }
+
+      .topbar,
+      .main-grid {
+        padding: 16px;
+      }
+
+      .nav-row {
+        align-items: stretch;
+      }
+
+      .user-controls,
+      .search-wrap {
+        width: 100%;
+      }
+
+      .feature-grid,
+      .cta-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-card {
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .cta-card:last-child {
+        border-bottom: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <div class="brand">
+        <h1>Saville's Portfolio</h1>
+        <p>Build • Learn • Grow</p>
+      </div>
+
+      <div class="nav-row">
+        <nav class="nav-links" aria-label="Primary Navigation">
+          <a href="#">Home</a>
+          <a href="#">Projects</a>
+          <a href="#">Goals</a>
+          <a href="#">Gallery</a>
+          <a href="#">Q&amp;A</a>
+          <a href="#" class="active">Stories</a>
+        </nav>
+
+        <div class="user-controls">
+          <label class="search-wrap" aria-label="Search stories">
+            <span>⌕</span>
+            <input id="storySearch" type="text" placeholder="Search stories..." />
+          </label>
+          <button class="sign-in" type="button">Sign In</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-grid">
+      <aside class="panel sidebar">
+        <div class="panel-head">
+          <h2>Pick Your Adventure</h2>
+          <p>Choose a world, character, or legend to explore.</p>
+        </div>
+
+        <ul class="story-list" id="storyList"></ul>
+
+        <div class="future-box">
+          <div>
+            <h3>For Future Stories</h3>
+            <p class="muted">Reserve this space for new worlds, hidden lore, side characters, or upcoming chapters.</p>
+          </div>
+        </div>
+      </aside>
+
+      <section class="panel content-panel">
+        <div class="story-hero">
+          <div class="story-tag" id="storyTag">Featured Story</div>
+          <h2 id="storyTitle">The Legends of the Automatrons</h2>
+          <p id="storySubtitle">Ancient steel, fractured kingdoms, and the echo of forgotten makers.</p>
+        </div>
+
+        <div class="story-body">
+          <section class="story-section">
+            <h3>About</h3>
+            <p id="storyAbout">Select a story from the left to load its summary, themes, and exploration prompts.</p>
+          </section>
+
+          <section class="story-section">
+            <h3>Core Themes</h3>
+            <p id="storyThemes">Lore, memory, survival, power, and identity.</p>
+          </section>
+
+          <section class="story-section">
+            <h3>World Notes</h3>
+            <div class="feature-grid" id="featureGrid"></div>
+          </section>
+        </div>
+
+        <div class="cta-grid" id="ctaGrid"></div>
+      </section>
+    </main>
+
+    <footer class="footer-strip">
+      Story hub concept layout — static prototype ready for future PHP / MySQL integration.
+    </footer>
+  </div>
+
+  <script>
+    const stories = [
+      {
+        title: "The Legends of the Automatrons",
+        subtitle: "Ancient steel, fractured kingdoms, and the echo of forgotten makers.",
+        tag: "Featured Story",
+        about: "In a broken age where civilization survives in scattered strongholds, the Automatrons are remembered as both saviors and omens. Some believe they were protectors built by a vanished empire. Others believe they were the empire's final mistake. This story explores what happens when old machines begin to stir, and people must decide whether to reclaim their legacy or bury it forever.",
+        themes: "Identity, legacy, technology, power, ruin, memory.",
+        features: [
+          { title: "Tone", text: "Dark fantasy blended with relic-tech myth and lost-history mystery." },
+          { title: "Conflict", text: "Factions clash over whether the old machine order should be revived or destroyed." },
+          { title: "Visual Style", text: "Ruined citadels, weathered steel, red-lit vaults, and forgotten cathedrals of iron." },
+          { title: "Expansion", text: "This can grow into a game world, lore archive, or serialized project page." }
+        ],
+        ctas: [
+          { title: "Download Game", text: "Placeholder for a future playable build or prototype." },
+          { title: "Explore Their History", text: "Open a timeline of rulers, wars, and machine awakenings." },
+          { title: "Gallery", text: "Show concept art, symbols, maps, and faction designs." },
+          { title: "Explore Their Culture", text: "Dive into beliefs, rituals, class systems, and machine myths." }
+        ]
+      },
+      {
+        title: "Skeleton Man",
+        subtitle: "A fire-born figure walking between fear, ruin, and invitation.",
+        tag: "Dark Figure",
+        about: "Skeleton Man is less a person and more a threshold. He appears when a place is already breaking or when someone is about to cross into something they cannot undo. Whether he is a guide, a warning, or a force of destruction depends on who is seeing him. In some tellings he walks through blue and violet flame. In others, the ground cracks behind every step.",
+        themes: "Transformation, dread, invitation, fate, supernatural presence.",
+        features: [
+          { title: "Role", text: "Can function as an antagonist, herald, guardian, or symbolic force." },
+          { title: "Visual Identity", text: "Flame-wreathed bones, distorted rooms, and heat fractures in reality itself." },
+          { title: "Narrative Hook", text: "Why does he reach out — to save, tempt, judge, or recruit?" },
+          { title: "Use Case", text: "Perfect centerpiece for concept art, lore entries, or a game boss reveal." }
+        ],
+        ctas: [
+          { title: "Character Sheet", text: "Build out his abilities, symbolism, and encounter rules." },
+          { title: "Scene Gallery", text: "Display your flame, room distortion, and skeletal concept pieces." },
+          { title: "Origins", text: "Explain the first sighting, legend, or curse tied to him." },
+          { title: "Boss Concept", text: "Map out a fight, cinematic moment, or branching encounter." }
+        ]
+      },
+      {
+        title: "Dark Shadows",
+        subtitle: "A world where fear moves first and truth follows behind it.",
+        tag: "Shadow Tale",
+        about: "Dark Shadows centers on a place where memory itself feels unreliable. The people there know something old is watching, but no one agrees on what it wants. Some call it a sickness of the land. Some say it is the result of a promise broken generations ago. The deeper the story goes, the more the setting bends around dread, guilt, and hidden history.",
+        themes: "Paranoia, atmosphere, secrecy, inherited damage, survival.",
+        features: [
+          { title: "Mood", text: "Slow dread, subtle horror, and environments that feel emotionally haunted." },
+          { title: "Mystery", text: "Conflicting testimonies can shape branching versions of the truth." },
+          { title: "Setting", text: "Villages, forests, ruins, or industrial outskirts swallowed by uncertainty." },
+          { title: "Potential", text: "Strong fit for an episodic story page or exploration-based game." }
+        ],
+        ctas: [
+          { title: "Case Files", text: "Collect clues, witness accounts, and map fragments." },
+          { title: "Hidden Lore", text: "Reveal the buried event that changed the region forever." },
+          { title: "Gallery", text: "Show shadowscapes, silhouettes, and environmental sketches." },
+          { title: "Faction Notes", text: "Define who knows the truth and who profits from the lie." }
+        ]
+      },
+      {
+        title: "The Great Adventure",
+        subtitle: "A larger journey built on discovery, danger, and meaningful growth.",
+        tag: "Adventure Arc",
+        about: "The Great Adventure is the broadest of the worlds — a place for travel, wonder, and conflict that changes the people moving through it. It can be hopeful without being soft, dangerous without becoming hopeless. At its core, it is about what a person becomes after choosing to go farther than comfort would allow.",
+        themes: "Exploration, courage, friendship, loss, growth, discovery.",
+        features: [
+          { title: "Scope", text: "Designed for wide geography, multiple cultures, and long-form arcs." },
+          { title: "Hero Journey", text: "Works well with party systems, chapter maps, and escalating threats." },
+          { title: "Worldbuilding", text: "Lets you showcase travel notes, kingdoms, creatures, and artifacts." },
+          { title: "Format", text: "Could become a flagship project page with chapters and side stories." }
+        ],
+        ctas: [
+          { title: "World Map", text: "Add routes, regions, landmarks, and hidden zones." },
+          { title: "Character Roster", text: "Introduce travelers, rivals, and allies." },
+          { title: "Gallery", text: "Display landscapes, relics, and encounter sketches." },
+          { title: "Quest Board", text: "Break the story into missions, chapters, or trials." }
+        ]
+      },
+      {
+        title: "The Crystal of Time",
+        subtitle: "A relic story shaped by time fractures, memory, and impossible choices.",
+        tag: "Relic Story",
+        about: "The Crystal of Time follows an artifact no one was meant to understand completely. It doesn’t simply show the past or future — it changes how events can be perceived, repeated, or resisted. Every group that seeks it believes they can control it. Every group that touches it learns that time is not a straight road but a wound that can reopen.",
+        themes: "Time, consequence, obsession, fate, sacrifice.",
+        features: [
+          { title: "Mechanic", text: "Great foundation for branching timelines or alternate outcomes." },
+          { title: "Threat", text: "Every use of the crystal can cost memory, identity, or stability." },
+          { title: "Visuals", text: "Fractured glass light, echoing moments, repeated spaces, and unstable sky." },
+          { title: "Story Depth", text: "Perfect for layered lore and reveal-heavy chapter pacing." }
+        ],
+        ctas: [
+          { title: "Timeline", text: "Lay out the main fracture points and alternate paths." },
+          { title: "Crystal Lore", text: "Explain who made it, who broke it, and why it remains." },
+          { title: "Gallery", text: "Show relic sketches, time effects, and key scenes." },
+          { title: "Consequences", text: "Document the price paid by those who used it." }
+        ]
+      },
+      {
+        title: "Meet the Characters",
+        subtitle: "A living index of the people, creatures, and forces shaping your stories.",
+        tag: "Character Hub",
+        about: "This section acts as the connective tissue between all of your story worlds. Instead of focusing on one narrative, it introduces the voices that carry them. Heroes, monsters, rulers, wanderers, machines, and unknown entities can all live here as profiles, linked lore entries, or relationship maps.",
+        themes: "Identity, relationships, motive, perspective, archetype.",
+        features: [
+          { title: "Function", text: "Use it like a codex, companion page, or searchable character archive." },
+          { title: "Profiles", text: "Include appearance, role, goal, threat level, and symbolism." },
+          { title: "Connections", text: "Map rivalries, alliances, bloodlines, and hidden ties." },
+          { title: "Scalability", text: "Can later connect to PHP and MySQL for dynamic loading." }
+        ],
+        ctas: [
+          { title: "View Profiles", text: "Open detailed bios and visual references." },
+          { title: "Relationship Web", text: "Show how major characters connect or collide." },
+          { title: "Gallery", text: "Display portraits, silhouettes, and costume concepts." },
+          { title: "Archive", text: "Sort characters by world, faction, or threat." }
+        ]
+      },
+      {
+        title: "Appendices",
+        subtitle: "The place for maps, systems, side notes, and all the pieces behind the curtain.",
+        tag: "Reference Vault",
+        about: "Appendices are where raw structure lives. This is the section for maps, calendars, item lists, faction records, glossary entries, language notes, symbols, and unfinished but useful fragments. It gives your site the feeling of a deeper world without forcing everything into the main story pages.",
+        themes: "Structure, reference, lore support, hidden depth.",
+        features: [
+          { title: "Use", text: "Perfect for notes that support the story without slowing the narrative." },
+          { title: "Content Types", text: "Add glossaries, maps, artifacts, rank systems, or regional notes." },
+          { title: "Reader Value", text: "Lets visitors dig deeper into worlds they care about most." },
+          { title: "Builder Value", text: "Gives you a home for all the details you don't want to lose." }
+        ],
+        ctas: [
+          { title: "Glossary", text: "Define terms, groups, locations, and in-world language." },
+          { title: "Maps", text: "Store regional maps, routes, and territory sketches." },
+          { title: "Artifacts", text: "Catalog important relics, weapons, and objects." },
+          { title: "Notes", text: "Keep expandable worldbuilding fragments ready for later use." }
+        ]
+      }
+    ];
+
+    const storyList = document.getElementById('storyList');
+    const storySearch = document.getElementById('storySearch');
+    const storyTag = document.getElementById('storyTag');
+    const storyTitle = document.getElementById('storyTitle');
+    const storySubtitle = document.getElementById('storySubtitle');
+    const storyAbout = document.getElementById('storyAbout');
+    const storyThemes = document.getElementById('storyThemes');
+    const featureGrid = document.getElementById('featureGrid');
+    const ctaGrid = document.getElementById('ctaGrid');
+
+    let activeIndex = 0;
+
+    function renderStoryList(filter = '') {
+      const normalized = filter.trim().toLowerCase();
+      storyList.innerHTML = '';
+
+      stories.forEach((story, index) => {
+        const matches = !normalized || story.title.toLowerCase().includes(normalized) || story.subtitle.toLowerCase().includes(normalized);
+        if (!matches) return;
+
+        const item = document.createElement('li');
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = index === activeIndex ? 'active' : '';
+        button.innerHTML = `${story.title}<small>${story.tag}</small>`;
+        button.addEventListener('click', () => {
+          activeIndex = index;
+          renderStory(index);
+          renderStoryList(storySearch.value);
+        });
+        item.appendChild(button);
+        storyList.appendChild(item);
+      });
+
+      if (!storyList.children.length) {
+        const empty = document.createElement('li');
+        empty.innerHTML = '<button type="button" class="active">No matching stories<small>Try a different search term</small></button>';
+        storyList.appendChild(empty);
+      }
+    }
+
+    function renderStory(index) {
+      const story = stories[index];
+      storyTag.textContent = story.tag;
+      storyTitle.textContent = story.title;
+      storySubtitle.textContent = story.subtitle;
+      storyAbout.textContent = story.about;
+      storyThemes.textContent = story.themes;
+
+      featureGrid.innerHTML = '';
+      story.features.forEach((feature) => {
+        const card = document.createElement('article');
+        card.className = 'feature-card';
+        card.innerHTML = `<h4>${feature.title}</h4><p>${feature.text}</p>`;
+        featureGrid.appendChild(card);
+      });
+
+      ctaGrid.innerHTML = '';
+      story.ctas.forEach((cta) => {
+        const card = document.createElement('article');
+        card.className = 'cta-card';
+        card.innerHTML = `<h4>${cta.title}</h4><p>${cta.text}</p><a href="#">Open section →</a>`;
+        ctaGrid.appendChild(card);
+      });
+    }
+
+    storySearch.addEventListener('input', (event) => {
+      renderStoryList(event.target.value);
+    });
+
+    renderStory(activeIndex);
+    renderStoryList();
+  </script>
+</body>
+</html>
