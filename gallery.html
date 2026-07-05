@@ -1,238 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Defines the character set so text displays correctly -->
-    <meta charset="UTF-8">
+<html>
+	<head lang="en">
+		<title>Contact Us</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="stylesheet.css">
+	</head>
+	<body>
+		<div class="topnav">
+			<a href="index.html">Home</a>
+			<a href="about.html">About</a>
+			<a href="blog.html">Blog</a>
+			<a href="services.html">Services Offered</a>
+			<a href="gallery.html">Gallery</a>
+			<a href="contact.html">Contact Us</a>
+		</div>
+			<h1>This my website template</h1>
+			 <div class="responsive">
+				<div class="gallery">
+					<a target="_blank" href="img_5terre.jpg">
+						<img src="img_5terre.jpg" alt="Cinque Terre">
+					</a>
+					<div class="desc">Add a description of the image here</div>
+					</div>
+				</div>
 
-    <!-- Makes the site responsive on phones, tablets, and smaller screens -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<div class="responsive">
+					<div class="gallery">
+						<a target="_blank" href="img_forest.jpg">
+							<img src="img_forest.jpg" alt="Forest">
+						</a>
+					<div class="desc">Add a description of the image here</div>
+					</div>
+				</div>
 
-    <!-- Text shown in the browser tab -->
-    <title>Saville's Portfolio - Team Gallery</title>
+			<div class="responsive">
+				<div class="gallery">
+						<a target="_blank" href="img_lights.jpg">
+							<img src="img_lights.jpg" alt="Northern Lights">
+						</a>
+					<div class="desc">Add a description of the image here</div>
+					</div>
+				</div>
 
-    <!-- Links this page to the external CSS file -->
-    <link rel="stylesheet" href="gallery.css">
-</head>
-<body>
-
-    <!-- =========================
-         HEADER
-         Main introduction area
-    ========================== -->
-    <header class="header">
-        <h1>Saville's Portfolio</h1>
-        <p class="subtitle">Build quietly. Learn deeply. Grow with purpose.</p>
-    </header>
-
-    <!-- =========================
-         NAVBAR
-    ========================== -->
-    <nav class="navbar">
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="index.html#projects">Projects</a>
-            <a href="index.html#goals">Goals</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="index.html#qa">Q&amp;A</a>
-            <a href="index.html#contact">Contact</a>
-        </div>
-
-        <div class="nav-search">
-            <input
-                type="search"
-                id="searchInput"
-                class="search"
-                placeholder="Search team members..."
-            >
-        </div>
-    </nav>
-
-    <!-- =========================
-         MAIN CONTENT
-    ========================== -->
-    <main class="main">
-        <section class="card">
-            <h2>Our Team</h2>
-            <p>
-                This page highlights the people, roles, and creative identity behind the work.
-            </p>
-
-            <div class="row">
-                <div class="column">
-                    <div class="team-card">
-                        <img src="./images/test1.png" alt="Portrait of Saville Young IV">
-                        <div class="container">
-                            <h3>Saville Young IV</h3>
-                            <p class="title">CEO &amp; Founder</p>
-                            <p>I am excited about continuing my experience in programming.</p>
-                            <p><a href="mailto:savillionuniversal@gmail.com">savillionuniversal@gmail.com</a></p>
-                            <p><a class="button" href="mailto:savillionuniversal@gmail.com">Contact</a></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="column">
-                    <div class="team-card">
-                        <img src="./images/test2.png" alt="Portrait of Mike Ross">
-                        <div class="container">
-                            <h3>Mike Ross</h3>
-                            <p class="title">Art Director</p>
-                            <p>Shapes the visual identity, presentation, and overall creative direction.</p>
-                            <p><a href="mailto:mike@example.com">mike@example.com</a></p>
-                            <p><a class="button" href="mailto:mike@example.com">Contact</a></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="column">
-                    <div class="team-card">
-                        <img src="./images/test3.png" alt="Portrait of Johnny Doe">
-                        <div class="container">
-                            <h3>Johnny Doe</h3>
-                            <p class="title">Designer</p>
-                            <p>Focused on layout, detail work, and visual consistency across projects.</p>
-                            <p><a href="mailto:john@example.com">john@example.com</a></p>
-                            <p><a class="button" href="mailto:john@example.com">Contact</a></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="column">
-                    <div class="team-card">
-                        <img src="./images/hrdirector1.jpg" alt="Portrait of Jane Doe">
-                        <div class="container">
-                            <h3>Jane Doe</h3>
-                            <p class="title">HR Director</p>
-                            <p>Supports coordination, communication, and team organization.</p>
-                            <p><a href="mailto:jane@example.com">jane@example.com</a></p>
-                            <p><a class="button" href="mailto:jane@example.com">Contact</a></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="column">
-                    <div class="team-card">
-                        <img src="./images/militia.jpg" alt="Portrait of John Doe">
-                        <div class="container">
-                            <h3>John Doe</h3>
-                            <p class="title">Operations Support</p>
-                            <p>Helps with planning, logistics, and keeping work moving forward.</p>
-                            <p><a href="mailto:john@example.com">john@example.com</a></p>
-                            <p><a class="button" href="mailto:john@example.com">Contact</a></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="column">
-                    <div class="team-card">
-                        <img src="./images/custservrep.WEBP" alt="Portrait of Mary Jane">
-                        <div class="container">
-                            <h3>Mary Jane</h3>
-                            <p class="title">Customer Support</p>
-                            <p>Helps maintain communication and improve the user experience.</p>
-                            <p><a href="mailto:mary@example.com">mary@example.com</a></p>
-                            <p><a class="button" href="mailto:mary@example.com">Contact</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-		<section class="card">
-            <h2>Our Team</h2>
-            <p>
-                This page highlights the people, roles, and creative identity behind the work.
-            </p>
-
-            <div class="row">
-                <div class="column">
-                    <div class="team-card">
-                        <img src="./images/test1.png" alt="Portrait of Saville Young IV">
-                        <div class="container">
-                            <h3>Saville Young IV</h3>
-                            <p class="title">CEO &amp; Founder</p>
-                            <p>I am excited about continuing my experience in programming.</p>
-                            <p><a href="mailto:savillionuniversal@gmail.com">savillionuniversal@gmail.com</a></p>
-                            <p><a class="button" href="mailto:savillionuniversal@gmail.com">Contact</a></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="column">
-                    <div class="team-card">
-                        <img src="./images/test2.png" alt="Portrait of Mike Ross">
-                        <div class="container">
-                            <h3>Mike Ross</h3>
-                            <p class="title">Art Director</p>
-                            <p>Shapes the visual identity, presentation, and overall creative direction.</p>
-                            <p><a href="mailto:mike@example.com">mike@example.com</a></p>
-                            <p><a class="button" href="mailto:mike@example.com">Contact</a></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="column">
-                    <div class="team-card">
-                        <img src="./images/test3.png" alt="Portrait of Johnny Doe">
-                        <div class="container">
-                            <h3>Johnny Doe</h3>
-                            <p class="title">Designer</p>
-                            <p>Focused on layout, detail work, and visual consistency across projects.</p>
-                            <p><a href="mailto:john@example.com">john@example.com</a></p>
-                            <p><a class="button" href="mailto:john@example.com">Contact</a></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="column">
-                    <div class="team-card">
-                        <img src="./images/hrdirector1.jpg" alt="Portrait of Jane Doe">
-                        <div class="container">
-                            <h3>Jane Doe</h3>
-                            <p class="title">HR Director</p>
-                            <p>Supports coordination, communication, and team organization.</p>
-                            <p><a href="mailto:jane@example.com">jane@example.com</a></p>
-                            <p><a class="button" href="mailto:jane@example.com">Contact</a></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="column">
-                    <div class="team-card">
-                        <img src="./images/militia.jpg" alt="Portrait of John Doe">
-                        <div class="container">
-                            <h3>John Doe</h3>
-                            <p class="title">Operations Support</p>
-                            <p>Helps with planning, logistics, and keeping work moving forward.</p>
-                            <p><a href="mailto:john@example.com">john@example.com</a></p>
-                            <p><a class="button" href="mailto:john@example.com">Contact</a></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="column">
-                    <div class="team-card">
-                        <img src="./images/custservrep.WEBP" alt="Portrait of Mary Jane">
-                        <div class="container">
-                            <h3>Mary Jane</h3>
-                            <p class="title">Customer Support</p>
-                            <p>Helps maintain communication and improve the user experience.</p>
-                            <p><a href="mailto:mary@example.com">mary@example.com</a></p>
-                            <p><a class="button" href="mailto:mary@example.com">Contact</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
-    <footer class="footer">
-        <p>&copy; 2026 Saville's Portfolio</p>
-    </footer>
-
-    <!-- Links to the external JavaScript file -->
-    <script src="script.js"></script>
-</body>
+			<div class="responsive">
+			<div class="gallery">
+				<a target="_blank" href="img_mountains.jpg">
+					<img src="img_mountains.jpg" alt="Mountains">
+				</a>
+				<div class="desc">Add a description of the image here</div>
+				</div>
+			</div>
+	
+		<div class="clearfix"></div> 
+		<footer>
+			<div class="left-footer">
+				<h3 align="center">Index</h3>
+				<a href="index.html">Home</a>
+				<a href="about.html">About</a>
+				<a href="blog.html">Blog</a>
+				<a href="services.html">Services Offered</a>
+				<a href="gallery.html">Gallery</a>
+				<a href="contact.html">Contact Us</a>
+			</div>
+			<div class="center-footer">
+				<h3 align="center">More Options</h3>
+				<ol>
+					<li>Meet our Team</li>
+				</ol>
+			</div>
+			<div class="right-footer">
+				<h3 align="center">Find Us On Social Media</h1>
+				<a href="https:facebook.com">Facebook</a>
+				<a href="https:instragram.com">Instragram</a>
+			</div>
+			<div class="copyright">
+				<p align="center">Copright &copy; 2025-2026 Website Template</p>
+			</div>
+		</footer>
+	</body>
 </html>

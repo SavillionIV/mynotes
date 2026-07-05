@@ -1,12 +1,7 @@
-*{
-	margin: 0;
-	padding: 0;
-	}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
+h1 {
+	text-align: center;
 }
+
 h2 {
 	text-align: center;
 }
@@ -46,74 +41,6 @@ p {
   width: 200px;
   border: 1px solid #ccc;
   border-radius: 4px;
-}
-.sign-in {
-    background-color: #007BFF;
-    color: white;
-	float: right;
-}
-
-.sign-in:hover {
-    background-color: #0056b3;
-}
-/*header*/
-.about-section {
-  padding: 50px;
-  text-align: center;
-  background-color: #474e5d;
-  color: white;
-}
-
-/*Main Body*/
-.list {
-	text-align:center;
-}
-
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 20px;
-}
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-.column {
-  flex: 1 1 calc(33.33% - 40px);
-}
-
-.container::after, .row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-.title {
-  color: grey;
-}
-
-.button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 8px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-}
-
-.button:hover {
-  background-color: #555;
-}
-
-@media screen and (max-width: 650px) {
-  .column {
-    width: 100%;
-    display: block;
-  }
 }
 
 /*Footer*/

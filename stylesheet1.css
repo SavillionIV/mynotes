@@ -1,6 +1,105 @@
 .header {
-	float: center;
+  background-color: #fff;
+  padding: 20px;
 }
-.mbody {
-	float: center;
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+
+.logo img {
+  height: 40px;
+}
+
+.nav-links ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 16px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #007BFF; /* Highlight color */
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #007BFF;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+ h1 {
+	text-align: center;
+ }
+ 
+ p {
+ 
+ }
+ 
+ img {
+	height: 75px;
+	width: 75px;
+ }
+ 
+ table, th, td {
+	border: 2px solid;
+	padding: -2px;
+ }
+ 
+ #income {
+	margin-left:auto;
+	margin-right:auto;
+	text-align: center;
+	color: black;
+	background-color:white;
+	font-size: 15px;
+ }
+ 
+ #expenses {
+	margin-left:auto;
+	margin-right:auto;
+	text-align: center;
+	color: black;
+	background-color:white;
+	font-size: 15px;
+ }
+ 
+  #utilityexp {
+	margin-left:auto;
+	margin-right:auto;
+	text-align: center;
+	color: black;
+	background-color:white;
+	font-size: 15px;
+ }
+ 
+  #foodexp {
+	margin-left:auto;
+	margin-right:auto;
+	text-align: center;
+	color: black;
+	background-color:white;
+	font-size: 15px;
+ }

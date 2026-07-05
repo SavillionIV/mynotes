@@ -1,467 +1,131 @@
-/* =========================
-   RESET / GLOBAL
-   Removes default browser spacing
-   and makes sizing more predictable
-========================= */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
-
-/* =========================
-   BODY
-   Base styling for the page
-========================= */
-body {
-    background-color: #101010;
-    color: #f5f5f5;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-}
-
-/* =========================
-   TEXT
-   Global heading and paragraph styling
-========================= */
-h1 {
-    color: cyan;
-    margin-bottom: 10px;
-}
-
-h2 {
-    color: orange;
-    margin-bottom: 15px;
-}
-
-h3,
-h4 {
-    color: #ffd27f;
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-
-p {
-    margin-bottom: 15px;
-    font-size: 18px;
-}
-
-ul,
-ol {
-    margin-bottom: 15px;
-    padding-left: 20px;
-}
-
-li {
-    margin-bottom: 10px;
-}
-
-/* =========================
-   HEADER
-   Top intro section
-========================= */
-.header {
-    text-align: center;
-    padding: 50px 20px;
-    background: linear-gradient(135deg, #151515, #202020);
-    border-bottom: 2px solid cyan;
-}
-
-/* Small line under site title */
-.subtitle {
-    color: #cccccc;
-    font-size: 18px;
-}
-
-/* =========================
-   NAVBAR
-   Main navigation bar
-========================= */
+/* Navbar */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    background-color: #1e90ff;
-    padding: 15px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #333;
+  padding: 10px 20px;
 }
 
-/* Container for the nav links */
-.nav-links {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-/* Individual nav links */
 .navbar a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 8px 12px;
-    border-radius: 6px;
-    transition: background-color 0.3s ease;
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  text-align: center;
 }
 
-/* Hover effect for nav links */
 .navbar a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+  background-color: #ddd;
+  color: black;
 }
 
-/* Search box in navbar */
-.search {
-    padding: 10px 12px;
-    border: none;
-    border-radius: 6px;
-    outline: none;
-    min-width: 240px;
+.navbar form {
+  margin-left: auto;
 }
 
-/* =========================
-   MAIN
-   Main page wrapper
-========================= */
+.sright {
+  padding: 8px;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+body {
+  background-color: #f1f1f1;
+  padding: 20px;
+  font-family: Arial;
+}
+
+/* Center website */
 .main {
-    max-width: 1000px;
-    margin: 30px auto;
-    padding: 20px;
+  max-width: 1000px;
+  margin: auto;
 }
 
-/* Reusable "card" design used by sections */
-.card {
-    background-color: #1b1b1b;
-    border: 1px solid #333;
-    border-radius: 12px;
-    padding: 25px;
-    margin-bottom: 25px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
-    text-align: left;
+h1 {
+  font-size: 50px;
+  word-break: break-all;
 }
 
-/* =========================
-   ABOUT ME
-========================= */
-.aboutme {
-    text-align: left;
-}
-
-/* Profile image styling */
-.aboutme img {
-    display: block;
-    width: 160px;
-    height: 160px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 3px solid cyan;
-    margin: 0 auto 15px auto;
-}
-
-.aboutme h2,
-.aboutme h3 {
-    margin-top: 25px;
-}
-
-.aboutme p {
-    margin-bottom: 15px;
-}
-
-.aboutme ul,
-.aboutme ol {
-    margin: 10px 0 20px 25px;
-}
-
-.aboutme li {
-    margin-bottom: 8px;
-}
-
-/* Job entry divider lines */
-.job {
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #333;
-}
-
-.job:last-of-type {
-    border-bottom: none;
-}
-
-/* =========================
-   GOALS / PROJECTS / CONTACT
-========================= */
-#goals h2,
-#projects h2,
-#gallery h2,
-#qa h2,
-.contact h2 {
-    text-align: center;
-}
-
-.goal-list {
-    padding-left: 20px;
-}
-
-#projects p,
-#projects ul,
-#projects ol {
-    margin-bottom: 15px;
-}
-
-#projects ul {
-    padding-left: 20px;
-}
-
-/* =========================
-   CONTACT FORM
-========================= */
-.contact form {
-    max-width: 500px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    text-align: left;
-}
-
-.contact label {
-    font-weight: bold;
-    color: #dddddd;
-}
-
-.contact input,
-.contact textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #444;
-    border-radius: 8px;
-    background-color: #2a2a2a;
-    color: white;
-    font-size: 16px;
-}
-
-.contact textarea {
-    resize: vertical;
-}
-
-/* Submit button */
-.contact button {
-    background-color: cyan;
-    color: black;
-    border: none;
-    border-radius: 8px;
-    padding: 12px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.2s ease, background-color 0.3s ease;
-}
-
-/* Button hover effect */
-.contact button:hover {
-    background-color: orange;
-    transform: scale(1.03);
-}
-
-/* Message area under the form */
-.form-message {
-    margin-top: 10px;
-    font-weight: bold;
-    min-height: 24px;
-}
-
-/* Used by JavaScript to highlight invalid fields */
-.error {
-    border: 2px solid red !important;
-}
-
-/* Used by JavaScript search filter to hide content */
-.hidden {
-    display: none;
-}
-
-/* =========================
-   FOOTER
-========================= */
-.footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #0a0a0a;
-    border-top: 2px solid cyan;
-    margin-top: 30px;
-}
-
-/* =========================
-   RESPONSIVE DESIGN
-   Adjusts layout on smaller screens
-========================= */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .nav-links {
-        justify-content: center;
-    }
-
-    .search {
-        min-width: 100%;
-    }
-
-    .aboutme img {
-        width: 120px;
-        height: 120px;
-    }
-
-    .main {
-        padding: 15px;
-    }
-
-    .card {
-        padding: 20px;
-    }
-
-    p {
-        font-size: 16px;
-    }
-}
-
-/* ========================================
-   GALLERY
-======================================== */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.gallery-item {
-    background-color: #222;
-    border: 1px solid #333;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.gallery-item img {
-    display: block;
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-}
-/* ========================================
-   TEAM / GALLERY CARD LAYOUT
-======================================== */
 .row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-top: 25px;
+  margin: 8px -16px;
 }
 
+/* Add padding BETWEEN each column (if you want) */
+.row,
+.row > .column {
+  padding: 8px;
+}
+
+/* Create four equal columns that floats next to each other */
 .column {
-    flex: 1 1 calc(33.333% - 20px);
-    min-width: 260px;
+  float: left;
+  width: 25%;
 }
 
-.team-card {
-    background-color: #222;
-    border: 1px solid #333;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+/* Clear floats after rows */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-.team-card img {
+/* Content */
+.content {
+  background-color: white;
+  padding: 10px;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 900px) {
+  .column {
+    width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
     width: 100%;
-    height: 260px;
-    object-fit: cover;
-    display: block;
+  }
 }
 
-.container {
-    padding: 20px;
+/*Footer*/
+.footer {
+	position: ;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	background-color: #f1f1f1;
+	padding: 30px 20px;
+	text-align: center;
 }
 
-.container h3 {
-    margin-bottom: 8px;
-    color: orange;
+.footer .left,
+.footer .middle,
+.footer .right {
+  flex: 1 1 200px;
+  margin: 10px;
 }
 
-.title {
-    color: #cccccc;
-    font-weight: bold;
-    margin-bottom: 12px;
+.footer a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  margin: 5px 0;
 }
 
-.container a {
-    color: cyan;
-    text-decoration: none;
+.footer a:hover {
+  text-decoration: underline;
 }
 
-.container a:hover {
-    text-decoration: underline;
-}
-
-.button {
-    display: inline-block;
-    background-color: cyan;
-    color: black !important;
-    text-decoration: none;
-    padding: 10px 14px;
-    border-radius: 8px;
-    font-weight: bold;
-    margin-top: 10px;
-    transition: transform 0.2s ease, background-color 0.3s ease;
-}
-
-.button:hover {
-    background-color: orange;
-    transform: scale(1.03);
-    text-decoration: none;
-}
-
-/* ========================================
-   RESPONSIVE TEAM LAYOUT
-======================================== */
-@media (max-width: 900px) {
-    .column {
-        flex: 1 1 calc(50% - 20px);
-    }
-}
-
-@media (max-width: 600px) {
-    .column {
-        flex: 1 1 100%;
-    }
-
-    .team-card img {
-        height: 220px;
-    }
-}
-.team-card {
-    background-color: #222;
-    border: 1px solid #333;
-    border-radius: 12px;
-    overflow: hidden; /* keeps zoomed image from spilling outside the card */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.team-card img {
-    width: 100%;
-    height: 260px;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.3s ease;
-    cursor: pointer;
-}
-.team-card img:hover {
-    transform: scale(1.08);
+.footer .copyright {
+  width: 100%;
+  margin-top: 20px;
+  font-size: 0.9em;
+  color: #555;
 }

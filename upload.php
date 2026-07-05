@@ -1,17 +1,20 @@
 <?php
-	$target_dir = "uploads/";
-	$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-	$uploadOk = 1;
-	$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-	// Check if image file is a actual image or fake image
-	if(isset($_POST["submit"])) {
-		$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-	if($check !== false) {
-    echo "File is an image - " . $check["mime"] . ".";
-		$uploadOk = 1;
-	} else {
-		echo "File is not an image.";
-		$uploadOk = 0;
-	}
-	}
+require 'includes/db.php';
+require 'includes/auth.php';
+requireLogin();
+
+$targetDir = "uploads/";
+$targetFile = $targetDir . basename($_FILES["image"]["name"]);
+$uploadOk = 1;
+$imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+
+if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
+    $filename = basename($_FILES["image"]["name"]);
+    $stmt = $conn->prepare("INSERT INTO gallery (user_id, filename) VALUES (?, ?)");
+    $stmt->bind_param("is", $_SESSION['user_id'], $filename);
+    $stmt->execute();
+    header("Location: profile.php");
+} else {
+    echo "Error uploading file.";
+}
 ?>
